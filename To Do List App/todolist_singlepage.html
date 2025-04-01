@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="input-box" required/>
+	<button onclick="addTask()">Add Task</button>
+	
+	<div id="list-container"></div>
+	
+	
+	<script type="text/javascript"> 
+		let inputBox = document.getElementById("input-box");
+		let listContainer = document.getElementById("list-container");
+		
+		function addTask(){
+			let li = document.createElement("li");
+			li.innerHTML = inputBox.value;
+			listContainer.appendChild(li);
+			inputBox.value = "";
+		
+		}
+	</script>
+</body>
+</html>

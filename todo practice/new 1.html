@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<!-- Task Input Section -->
+	<header> 
+		<h2>To Do List APP</h2>
+			<!-- form  -->
+		<form action="" id="taskInputForm">
+			<input type="text" id="newTaskInput" placeholder="Input Task Here" /> <!-- Task input Field -->
+			<input type="submit" value="Add Task"  id="taskSubmit"/>
+		</form>
+	</header>
+	
+	<!-- Task Display Section -->
+
+	<section> 
+		<h2>Task List</h2>
+		<div id="taskContainer"> 
+			<div class="content" id="content"> 
+				<!-- <input type="text" /> -->
+			</div>
+		
+		</div>
+	
+	</section>
+	<script type="text/javascript"> 
+		let newTaskInput = document.getElementById("newTaskInput");
+		let taskInputForm = document.getElementById("taskInputForm");
+		let taskContainer = document.getElementById('taskContainer');
+		let taskContent = document.getElementById('content');
+		
+		taskInputForm.addEventListener("submit", (event)=>{
+			event.preventDefault();
+			
+		//let outputTask = document.createElement('input');
+		let outputTask = document.createElement('p');
+		
+		
+		taskContainer.appendChild(outputTask);
+		//outputTask.type = "text";
+		outputTask.innerText = newTaskInput.value;
+		
+	
+		
+		//Creating Action div
+		const actionDiv = document.createElement('div');
+		taskContent.appendChild(actionDiv);
+		//Edit Btn
+		const editBtn = document.createElement("button");
+		actionDiv.appendChild(editBtn);
+		editBtn.innerText = "Edit Btn"		
+		
+		
+				  // edit a task field
+		  editBtn.addEventListener("click", (e) => {
+			// console.log("test edit");
+			// console.log(e.target.innerText);
+			if (editBtn.innerText.toLowerCase() === "edit") {
+			  //   console.log("edit button is clicked");
+			 // inputTask.removeAttribute("readonly");
+			  editBtn.innerText = "Save";
+			  inputTask.focus();
+			} else {
+			  editBtn.innerText = "Edit";
+			//  inputTask.setAttribute("readonly", "readonly");
+			}
+		  });
+		
+		
+		//Delete Btn
+		const deleteBtn = document.createElement("button");
+		actionDiv.appendChild(deleteBtn);
+		deleteBtn.innerText = "Delete Btn"
+		
+		
+			
+			
+		});
+		
+	
+	</script>
+</body>
+</html>
