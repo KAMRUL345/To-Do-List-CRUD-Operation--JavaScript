@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript CRUD with LocalStorage</title>
+  <style>
+    table { border-collapse: collapse; width: 60%; margin-top: 20px; }
+    table, th, td { border: 1px solid black; padding: 8px; text-align: center; }
+    button { margin: 2px; padding: 4px 8px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+  <h2>JavaScript CRUD with LocalStorage</h2>
+  
+  <input type="text" id="name" placeholder="Enter Name">
+  <input type="text" id="email" placeholder="Enter Email">
+  <button onclick="addData()">Add</button>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="crud-localstorage.js"></script>
+</body>
+</html>

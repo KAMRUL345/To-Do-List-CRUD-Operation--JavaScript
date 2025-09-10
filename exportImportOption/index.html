@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript CRUD with LocalStorage & Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">JavaScript CRUD with LocalStorage</h2>
+    
+    <!-- Input Form -->
+    <div class="card shadow p-4 mb-4">
+      <div class="row g-2">
+        <div class="col-md-5">
+          <input type="text" id="name" class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="col-md-5">
+          <input type="text" id="email" class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="col-md-2 d-grid">
+          <button class="btn btn-primary" onclick="addData()">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search, Export & Import -->
+    <div class="card shadow p-3 mb-3">
+      <div class="row">
+        <div class="col-md-4">
+          <input type="text" id="searchInput" onkeyup="searchData()" class="form-control" placeholder="🔍 Search by name or email...">
+        </div>
+        <div class="col-md-8 text-end">
+          <button class="btn btn-success" onclick="exportToCSV()">⬇ Export CSV</button>
+          <button class="btn btn-info" onclick="exportToExcel()">⬇ Export Excel</button>
+          <input type="file" id="fileInput" accept=".csv, .xls, .xlsx" class="d-none" onchange="importFile(event)">
+          <button class="btn btn-warning" onclick="document.getElementById('fileInput').click()">⬆ Import CSV/Excel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card shadow">
+      <div class="card-body">
+        <table class="table table-bordered table-striped text-center" id="dataTableWrapper">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+
+        <!-- Pagination -->
+        <nav>
+          <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- SheetJS লাইব্রেরি (Excel পার্স করার জন্য) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="crud-bootstrap-import.js"></script>
+</body>
+</html>
